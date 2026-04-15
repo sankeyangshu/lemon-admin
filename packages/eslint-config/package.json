@@ -1,0 +1,17 @@
+{
+  "name": "@lemon/eslint-config",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "eslint config for lemon-admin",
+  "exports": {
+    ".": "./eslint.config.js",
+    "./create-config": {
+      "types": "./create-config.d.ts",
+      "default": "./create-config.js"
+    }
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^8.2.0",
+    "eslint-plugin-format": "^2.0.1"
+  }
+}

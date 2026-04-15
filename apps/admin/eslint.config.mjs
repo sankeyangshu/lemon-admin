@@ -1,27 +1,16 @@
-import antfu from '@antfu/eslint-config';
+import defineConfig from '@lemon/eslint-config/create-config';
 import pluginQuery from '@tanstack/eslint-plugin-query';
 import pluginRouter from '@tanstack/eslint-plugin-router';
 import pluginTailwindcss from 'eslint-plugin-better-tailwindcss';
 
-export default antfu(
+export default defineConfig(
   {
-    formatters: true,
     react: true,
     typescript: {
       tsconfigPath: 'tsconfig.json',
     },
-    stylistic: {
-      indent: 2,
-      quotes: 'single',
-      semi: true,
-    },
     ignores: ['**/routeTree.gen.ts'],
     isInEditor: false,
-    rules: {
-      'style/arrow-parens': ['error', 'always'], // 箭头函数参数始终添加括号
-      'style/brace-style': ['error', '1tbs', { allowSingleLine: true }], // 括号样式
-      'pnpm/yaml-enforce-settings': 'off',
-    },
   },
   {
     files: ['**/*.ts', '**/*.tsx'],
@@ -35,6 +24,7 @@ export default antfu(
     },
   },
   {
+    files: ['src/**/*.{ts,tsx}'],
     plugins: {
       'better-tailwindcss': pluginTailwindcss,
     },

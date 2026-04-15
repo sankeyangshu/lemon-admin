@@ -9,9 +9,8 @@ import { setupUnPluginSvgIconConfig } from './unplugin';
 
 /**
  * 配置 vite 插件
- * @param viteEnv vite 环境变量配置文件键值队 object
+ * @param viteEnv vite 环境变量配置文件键值对 object
  * @param lastBuildTime 最后编译时间
- * @returns vitePlugins[]
  */
 export function createVitePlugins(viteEnv: Env.ImportMeta, lastBuildTime: string) {
   const vitePlugins: PluginOption = [

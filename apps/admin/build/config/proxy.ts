@@ -5,8 +5,7 @@ type ProxyTargetList = Record<string, ProxyOptions>;
 const httpsRE = /^https:\/\//;
 
 /**
- * Generate proxy
- * @descCN 创建代理，用于解析 .env.development 代理配置
+ * 创建代理，用于解析 .env.development 代理配置
  * @param list 代理地址列表
  */
 export function createProxy(list: Env.ImportMeta['VITE_PROXY'] = []) {

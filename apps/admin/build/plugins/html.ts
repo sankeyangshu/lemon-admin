@@ -1,10 +1,8 @@
 import type { Plugin } from 'vite';
 
 /**
- * Configures the html plugin for Vite.
- * @descCN 配置html vite 插件
- * @param lastBuildTime - The last build time. 最后编译时间
- * @returns The configured html plugin.
+ * 配置html vite 插件
+ * @param lastBuildTime - 最后编译时间
  */
 export function setupHtmlPluginConfig(lastBuildTime: string) {
   const plugin: Plugin = {

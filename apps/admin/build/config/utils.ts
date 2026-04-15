@@ -4,10 +4,8 @@ import { red } from 'ansis';
 const NEWLINE_RE = /\\n/g;
 
 /**
- * Read all environment variable configuration files to process.env
- * @descCN 读取并处理所有环境变量配置文件
- * @param envConf - A record of environment variables to be processed.
- * @returns An object containing the processed environment variables with appropriate types.
+ * 读取并处理所有环境变量配置文件
+ * @param envConf - 环境变量配置文件
  */
 export function wrapperEnv(envConf: Record<string, string>): Env.ImportMeta {
   const ret: Record<string, any> = {};

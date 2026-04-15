@@ -7,9 +7,8 @@ const PRESERVE_COLOR_RE = /.*\.svg$/;
 const SVG_EXT_RE = /\.svg$/;
 
 /**
- * Configures the unplugin-svg-component plugin for Vite.
- * @descCN 配置unplugin-svg-component vite 插件
- * @param viteEnv - The Vite environment configuration containing compression settings.
+ * 配置unplugin-svg-component vite 插件
+ * @param viteEnv - 环境变量配置文件
  * @see {@link https://github.com/Jevon617/unplugin-svg-component}
  */
 export function setupUnPluginSvgIconConfig(viteEnv: Env.ImportMeta) {

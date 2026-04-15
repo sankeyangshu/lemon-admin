@@ -21,7 +21,7 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
     plugins: createVitePlugins(viteEnv, lastBuildTime),
 
     resolve: {
-      tsconfigPaths: true,
+      tsconfigPaths: true, // 开启 TS 路径别名
     },
 
     // 跨域代理
@@ -29,6 +29,7 @@ export default defineConfig((config: ConfigEnv): UserConfig => {
       host: true,
       open: viteEnv.VITE_OPEN,
       port: viteEnv.VITE_PORT,
+      forwardConsole: true, // 把浏览器 console 转发到终端
       proxy: createProxy(viteEnv.VITE_PROXY),
     },
 

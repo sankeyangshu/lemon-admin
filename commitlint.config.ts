@@ -12,4 +12,6 @@
  * chore:    对构建过程或辅助工具和库的更改（不影响源文件、测试用例）
  * revert:   回滚 commit
  */
-export default { extends: ['@commitlint/config-conventional'] };
+export default {
+  extends: ['@commitlint/config-conventional'],
+};

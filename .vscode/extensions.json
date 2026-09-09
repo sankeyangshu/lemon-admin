@@ -2,7 +2,7 @@
   "recommendations": [
     "sankeyangshu.vscode-javascript-typescript-snippets",
     "bradlc.vscode-tailwindcss",
-    "dbaeumer.vscode-eslint",
+    "oxc.oxc-vscode",
     "mikestead.dotenv",
     "editorconfig.editorconfig",
     "usernamehw.errorlens",

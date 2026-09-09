@@ -4,12 +4,48 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Lockfiles (pnpm only)
+yarn.lock
+package-lock.json
+
+# Build outputs
 dist
 dist-ssr
+out/
+server/dist
+public/dist
+web-build/
+.open-next
+app-example
+
+# Caches
+.cache
+.temp
+turbo
+.turbo
+.next
+.source/
+.tanstack
+.metro-health-check*
+.wrangler
+.vercel
+
+# env files (can opt-in for committing if needed)
+.env*
 *.local
 
 # Editor directories and files
@@ -18,9 +54,11 @@ dist-ssr
 !.vscode/settings.json
 .idea
 .DS_Store
-.tanstack
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# TypeScript
+*.tsbuildinfo

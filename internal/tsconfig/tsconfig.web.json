@@ -1,0 +1,9 @@
+{
+  "display": "Web",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true
+  }
+}

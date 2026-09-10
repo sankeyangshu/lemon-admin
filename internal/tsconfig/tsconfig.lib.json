@@ -1,0 +1,10 @@
+{
+  "display": "Library",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declarationMap": true
+  }
+}

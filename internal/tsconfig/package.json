@@ -1,0 +1,28 @@
+{
+  "name": "@lemon/tsconfig",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared TypeScript configuration for Lemon Admin",
+  "keywords": [
+    "lemon-admin",
+    "tsconfig"
+  ],
+  "author": {
+    "name": "sankeyangshu",
+    "email": "sankeyangshu@gmail.com",
+    "url": "https://github.com/sankeyangshu"
+  },
+  "files": [
+    "tsconfig.base.json",
+    "tsconfig.lib.json",
+    "tsconfig.node.json",
+    "tsconfig.web.json"
+  ],
+  "type": "module",
+  "exports": {
+    "./base.json": "./tsconfig.base.json",
+    "./lib.json": "./tsconfig.lib.json",
+    "./node.json": "./tsconfig.node.json",
+    "./web.json": "./tsconfig.web.json"
+  }
+}

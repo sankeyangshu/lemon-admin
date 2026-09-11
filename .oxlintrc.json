@@ -10,5 +10,8 @@
     "builtin": true,
     "browser": true,
     "node": true
+  },
+  "rules": {
+    "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }]
   }
 }

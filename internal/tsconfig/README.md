@@ -22,7 +22,7 @@
 
 ### lib.json - 库包配置
 
-用于 `packages/` 下需要生成类型声明的库包：
+用于 `packages/` 下由 tsdown 打包的库包：
 
 ```json
 {
@@ -32,9 +32,9 @@
 
 特点：
 
-- 生成类型声明文件 (`.d.ts`)
-- 仅输出类型，不编译代码（JS 由打包器处理）
 - 不包含 DOM 类型
+- tsc 不输出文件（继承 `noEmit: true`）
+- JS 和类型声明由 tsdown 处理
 
 ### node.json - Node 包配置
 
@@ -78,11 +78,7 @@
 // packages/xxx/tsconfig.json
 {
   "extends": "@lemon/tsconfig/lib.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src"
-  },
-  "include": ["src/**/*"],
+  "include": ["src"],
   "exclude": ["src/**/*.test.ts"]
 }
 ```
@@ -93,7 +89,7 @@
 // packages/ui/tsconfig.json
 {
   "extends": "@lemon/tsconfig/web.json",
-  "include": ["src/**/*"]
+  "include": ["src"]
 }
 ```
 
@@ -109,7 +105,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }
 ```
 
@@ -123,7 +119,7 @@
     "outDir": "dist",
     "rootDir": "src"
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }
 ```
 
@@ -132,9 +128,9 @@
 ```
 是否是 Node.js 工具 / Nest？
 ├─ 是 → node.json
-└─ 否 → 是否生成类型声明？
-    ├─ 是 → lib.json
-    └─ 否 → web.json
+└─ 否 → 是否需要 DOM / JSX？
+    ├─ 是 → web.json
+    └─ 否 → lib.json
 ```
 
 ## 🔧 编译器选项说明
@@ -157,8 +153,6 @@
 ### 输出选项
 
 - `noEmit: true` - 不输出 JS 文件（基础配置）
-- `emitDeclarationOnly: true` - 只生成 `.d.ts` 文件（库配置）
-- `declarationMap: true` - 生成 `.d.ts.map`，方便跳转到源码（库配置）
 
 ### 代码质量选项
 
@@ -197,10 +191,10 @@ packages:
 
 ```bash
 # 库包
-echo '{"extends": "@lemon/tsconfig/lib.json", "include": ["src/**/*"]}' > packages/xxx/tsconfig.json
+echo '{"extends": "@lemon/tsconfig/lib.json", "include": ["src"]}' > packages/xxx/tsconfig.json
 
 # Web 应用
-echo '{"extends": "@lemon/tsconfig/web.json", "include": ["src/**/*"]}' > apps/admin/tsconfig.app.json
+echo '{"extends": "@lemon/tsconfig/web.json", "include": ["src"]}' > apps/admin/tsconfig.app.json
 ```
 
 ### 3. 配置路径别名

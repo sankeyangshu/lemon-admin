@@ -1,0 +1,54 @@
+{
+  "name": "@lemon/vite-config",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Shared Vite configuration for Lemon Admin",
+  "keywords": [
+    "lemon-admin",
+    "vite",
+    "vite-config",
+    "web"
+  ],
+  "author": {
+    "name": "sankeyangshu",
+    "email": "sankeyangshu@gmail.com",
+    "url": "https://github.com/sankeyangshu"
+  },
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@babel/core": "catalog:web",
+    "@date-fns/tz": "catalog:utils",
+    "@rolldown/plugin-babel": "catalog:web",
+    "@tailwindcss/vite": "catalog:css",
+    "@tanstack/router-plugin": "catalog:web",
+    "@vitejs/plugin-react": "catalog:web",
+    "babel-plugin-react-compiler": "catalog:web",
+    "date-fns": "catalog:utils",
+    "unplugin-svg-component": "catalog:web"
+  },
+  "devDependencies": {
+    "@lemon/tsconfig": "workspace:*",
+    "@types/node": "catalog:web",
+    "rimraf": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "typescript": "catalog:core",
+    "vite": "catalog:core"
+  },
+  "peerDependencies": {
+    "vite": ">=8.0.0"
+  }
+}

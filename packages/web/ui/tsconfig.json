@@ -1,0 +1,10 @@
+{
+  "extends": "@lemon/tsconfig/web.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
+    "paths": {
+      "@workspace/web-ui/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}

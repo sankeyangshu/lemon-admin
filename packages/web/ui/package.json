@@ -1,0 +1,36 @@
+{
+  "name": "@workspace/web-ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./globals.css": "./src/styles/globals.css",
+    "./lib/*": "./src/lib/*.ts",
+    "./components/*": "./src/components/*.tsx",
+    "./hooks/*": "./src/hooks/*.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:ui-shared",
+    "@fontsource-variable/inter": "catalog:ui-shared",
+    "class-variance-authority": "catalog:ui-shared",
+    "cn": "catalog:ui-shared",
+    "lucide-react": "catalog:ui-shared",
+    "react": "catalog:core",
+    "react-dom": "catalog:core",
+    "shadcn": "catalog:ui-shared",
+    "tw-animate-css": "catalog:css",
+    "zod": "catalog:utils"
+  },
+  "devDependencies": {
+    "@lemon/tsconfig": "workspace:*",
+    "@tailwindcss/vite": "catalog:css",
+    "@types/node": "catalog:web",
+    "@types/react": "catalog:web",
+    "@types/react-dom": "catalog:web",
+    "tailwindcss": "catalog:css",
+    "typescript": "catalog:core"
+  }
+}

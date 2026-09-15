@@ -48,6 +48,18 @@
   "oxc.enable.oxlint": true,
   "prettier.enable": false,
 
+  // tailwindcss
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.classFunctions": ["cn", "cva", "clsx"],
+  "tailwindCSS.experimental.configFile": {
+    "packages/ui/src/styles/globals.css": ["apps/**", "packages/ui/**"]
+  },
+
   // ignore routeTree.gen.ts file
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true

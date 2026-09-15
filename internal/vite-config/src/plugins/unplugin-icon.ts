@@ -13,6 +13,7 @@ export function setupUnPluginSvgIconConfig(options: Partial<UnPluginIconOptions>
     iconDir: './src/assets/svg-icon',
     dts: true,
     dtsDir: './src/types',
+    prefix: 'icon',
     componentName: 'LocalSvgIcon',
     preserveColor: /.*\.svg$/, // 保留多色图标的原始颜色
     symbolIdFormatter: (svgName: string, prefix: string): string => {

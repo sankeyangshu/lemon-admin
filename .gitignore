@@ -45,7 +45,7 @@ turbo
 .vercel
 
 # env files (can opt-in for committing if needed)
-.env*
+.env*.local
 *.local
 
 # Editor directories and files

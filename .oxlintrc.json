@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "node"],
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "node", "jsdoc"],
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
@@ -12,6 +12,8 @@
     "node": true
   },
   "rules": {
-    "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }]
+    "import/no-unassigned-import": ["error", { "allow": ["**/*.css"] }],
+    "jsdoc/require-param-name": "error",
+    "jsdoc/require-param-description": "error"
   }
 }

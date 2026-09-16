@@ -1,29 +1,24 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
+
+import '@workspace/web-ui/globals.css';
+import App from './App.tsx';
 import { setupI18n } from './locales';
-import { setupIconifyOffline, setupLoading } from './plugins';
-import './styles/global.css';
 
 async function bootstrap() {
-  await setupI18n();
-
-  setupLoading();
-
-  setupIconifyOffline();
-
   const container = document.getElementById('root');
 
-  if (!container)
-    return;
+  if (!container) return;
+
+  await setupI18n();
 
   const root = createRoot(container);
 
   root.render(
     <StrictMode>
       <App />
-    </StrictMode>,
+    </StrictMode>
   );
 }
 
-void bootstrap();
+bootstrap();

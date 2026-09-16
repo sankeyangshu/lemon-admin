@@ -110,6 +110,7 @@ const local: App.I18n.I18nScheme = {
         tab: {
           title: '标签栏设置',
           visible: '显示标签栏',
+          cache: '标签栏信息缓存',
           height: '标签栏高度',
           mode: {
             title: '标签栏风格',

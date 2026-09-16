@@ -57,7 +57,7 @@
   },
   "tailwindCSS.classFunctions": ["cn", "cva", "clsx"],
   "tailwindCSS.experimental.configFile": {
-    "packages/ui/src/styles/globals.css": ["apps/**", "packages/ui/**"]
+    "packages/web/ui/src/styles/globals.css": ["apps/**", "packages/web/ui/**"]
   },
 
   // ignore routeTree.gen.ts file
@@ -73,12 +73,16 @@
 
   // i18n-ally settings
   "i18n-ally.displayLanguage": "zh-cn",
+  "i18n-ally.sourceLanguage": "zh-cn",
   "i18n-ally.enabledParsers": ["ts"],
   "i18n-ally.enabledFrameworks": ["react-i18next"],
   "i18n-ally.extract.targetPickingStrategy": "most-similar",
-  "i18n-ally.localesPaths": ["src/locales/modules"],
+  "i18n-ally.localesPaths": ["apps/admin/src/locales/modules"],
+  "i18n-ally.pathMatcher": "{locale}.{ext}",
   "i18n-ally.keystyle": "nested",
   "i18n-ally.parsers.typescript.compilerOptions": {
-    "moduleResolution": "node"
+    "ignoreDeprecations": "6.0",
+    "moduleResolution": "node",
+    "target": "ES2020"
   }
 }

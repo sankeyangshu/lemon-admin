@@ -1,0 +1,26 @@
+{
+  "name": "@workspace/web-i18n",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "i18next": "catalog:i18n",
+    "i18next-browser-languagedetector": "catalog:i18n",
+    "react-i18next": "catalog:i18n"
+  },
+  "devDependencies": {
+    "@lemon/tsconfig": "workspace:*",
+    "@types/react": "catalog:web",
+    "react": "catalog:core",
+    "typescript": "catalog:core"
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  }
+}

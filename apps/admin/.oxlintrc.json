@@ -1,0 +1,33 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "extends": ["../../.oxlintrc.json"],
+  "ignorePatterns": ["src/routeTree.gen.ts"],
+  "plugins": ["react"],
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/hook-use-state": ["error", { "allowDestructuredState": true }],
+    "react/jsx-curly-brace-presence": [
+      "warn",
+      { "children": "never", "propElementValues": "always", "props": "never" }
+    ],
+    "react/jsx-fragments": ["warn", "syntax"],
+    "react/jsx-no-target-blank": "error",
+    "react/jsx-no-useless-fragment": "warn",
+    "react/no-unknown-property": "error",
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  },
+  "overrides": [
+    {
+      "files": ["src/pages/**"],
+      "rules": {
+        "react/only-export-components": "off"
+      }
+    }
+  ]
+}

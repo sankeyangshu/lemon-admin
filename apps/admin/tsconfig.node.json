@@ -1,15 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@lemon/tsconfig/node.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "moduleDetection": "force",
-    "types": ["node"],
-
-    /* Bundler mode */
-    "verbatimModuleSyntax": true,
-
-    /* Linting */
-    "erasableSyntaxOnly": true
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true
   },
-  "include": ["build", "*.config.ts", "src/types/env.d.ts"]
+  "include": ["vite.config.ts", "src/types/env.d.ts"]
 }

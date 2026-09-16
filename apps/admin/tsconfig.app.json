@@ -1,21 +1,12 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@lemon/tsconfig/web.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "jsx": "react-jsx",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "moduleDetection": "force",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-
     "types": ["vite/client"],
-    /* Bundler mode */
-    "verbatimModuleSyntax": true,
-
-    /* Linting */
-    "erasableSyntaxOnly": true
+    "paths": {
+      "@/*": ["./src/*"],
+      "@workspace/web-ui/*": ["../../packages/web/ui/src/*"]
+    }
   },
   "include": ["src"]
 }

@@ -1,7 +1,8 @@
 import { Link } from '@tanstack/react-router';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '@workspace/web-i18n';
+import { Button } from '@workspace/web-ui/components/button';
+
 import notFound from '@/assets/svg-icon/not-found.svg';
-import { Button } from '../ui/button';
 
 function NotFound() {
   const { t } = useTranslation();
@@ -9,11 +10,7 @@ function NotFound() {
   const elements = [
     {
       id: 'title',
-      content: (
-        <div className="mb-5 text-xl/10 font-bold text-primary">
-          {t('system.notFound')}
-        </div>
-      ),
+      content: <div className="text-primary mb-5 text-xl/10 font-bold">{t('system.notFound')}</div>,
     },
     {
       id: 'description',
@@ -37,7 +34,7 @@ function NotFound() {
           {elements.map((item, index) => (
             <div
               key={item.id}
-              className="animate-in duration-320 ease-in fade-in slide-in-from-bottom-[120px]"
+              className="animate-in fade-in slide-in-from-bottom-[120px] duration-320 ease-in"
               style={{
                 animationDelay: `${(index + 1) * 50}ms`,
                 animationFillMode: 'both',

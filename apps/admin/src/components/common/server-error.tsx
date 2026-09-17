@@ -1,18 +1,17 @@
 import { Link } from '@tanstack/react-router';
-import { useTranslation } from 'react-i18next';
-import forbidden from '@/assets/svg-icon/forbidden.svg';
-import { Button } from '../ui/button';
+import { useTranslation } from '@workspace/web-i18n';
+import { Button } from '@workspace/web-ui/components/button';
 
-function Forbidden() {
+import serverError from '@/assets/svg-icon/server-error.svg';
+
+function ServerError() {
   const { t } = useTranslation();
 
   const elements = [
     {
       id: 'title',
       content: (
-        <div className="mb-5 text-xl/10 font-bold text-primary">
-          {t('system.forbidden')}
-        </div>
+        <div className="text-primary mb-5 text-xl/10 font-bold">{t('system.serverError')}</div>
       ),
     },
     {
@@ -32,12 +31,12 @@ function Forbidden() {
   return (
     <div className="box-border size-full p-2.5">
       <div className="flex flex-col items-center justify-center">
-        <img className="pointer-events-none size-100" src={forbidden} alt="Forbidden" />
+        <img className="pointer-events-none size-100" src={serverError} alt="Server Error" />
         <div className="text-center">
           {elements.map((item, index) => (
             <div
               key={item.id}
-              className="animate-in duration-320 ease-in fade-in slide-in-from-bottom-[120px]"
+              className="animate-in fade-in slide-in-from-bottom-[120px] duration-320 ease-in"
               style={{
                 animationDelay: `${(index + 1) * 50}ms`,
                 animationFillMode: 'both',
@@ -52,4 +51,4 @@ function Forbidden() {
   );
 }
 
-export default Forbidden;
+export default ServerError;

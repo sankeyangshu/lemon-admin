@@ -1,6 +1,6 @@
-import type { LoadingBarRef } from 'react-top-loading-bar';
 import { useRouterState } from '@tanstack/react-router';
 import { useEffect, useRef } from 'react';
+import type { LoadingBarRef } from 'react-top-loading-bar';
 import LoadingBar from 'react-top-loading-bar';
 
 function NavigationProgress() {

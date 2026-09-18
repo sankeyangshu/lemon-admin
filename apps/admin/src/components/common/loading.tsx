@@ -1,6 +1,6 @@
 import { useTranslation } from '@workspace/web-i18n';
 
-function GlobalLoading() {
+const GlobalLoading = () => {
   const { t } = useTranslation();
 
   return (
@@ -27,6 +27,6 @@ function GlobalLoading() {
       <div className="text-primary/80 text-2xl font-medium">{t('system.title')}</div>
     </div>
   );
-}
+};
 
 export default GlobalLoading;

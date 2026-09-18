@@ -4,7 +4,7 @@ import { Button } from '@workspace/web-ui/components/button';
 
 import notFound from '@/assets/svg-icon/not-found.svg';
 
-function NotFound() {
+const NotFound = () => {
   const { t } = useTranslation();
 
   const elements = [
@@ -47,6 +47,6 @@ function NotFound() {
       </div>
     </div>
   );
-}
+};
 
 export default NotFound;

@@ -10,6 +10,14 @@
   },
   "rules": {
     "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }
+    ],
+    "react/prefer-function-component": "error",
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "react/no-unstable-nested-components": "error",
     "react/hook-use-state": ["error", { "allowDestructuredState": true }],
     "react/jsx-curly-brace-presence": [
       "warn",
@@ -20,7 +28,38 @@
     "react/jsx-no-useless-fragment": "warn",
     "react/no-unknown-property": "error",
     "react/self-closing-comp": ["error", { "component": true, "html": true }],
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react",
+            "importNames": ["useCallback", "memo"],
+            "message": "禁止 useCallback / memo，见 apps/admin/AGENTS.md"
+          }
+        ],
+        "patterns": [
+          {
+            "group": ["next", "next/*"],
+            "message": "Vite SPA，禁止 import next/*"
+          }
+        ]
+      }
+    ],
+    "no-restricted-properties": [
+      "error",
+      {
+        "object": "React",
+        "property": "useCallback",
+        "message": "禁止 React.useCallback，见 apps/admin/AGENTS.md"
+      },
+      {
+        "object": "React",
+        "property": "memo",
+        "message": "禁止 React.memo，见 apps/admin/AGENTS.md"
+      }
+    ]
   },
   "overrides": [
     {

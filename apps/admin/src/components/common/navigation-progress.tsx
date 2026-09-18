@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import type { LoadingBarRef } from 'react-top-loading-bar';
 import LoadingBar from 'react-top-loading-bar';
 
-function NavigationProgress() {
+const NavigationProgress = () => {
   const state = useRouterState();
   const progressRef = useRef<LoadingBarRef>(null);
 
@@ -16,6 +16,6 @@ function NavigationProgress() {
   }, [state.status]);
 
   return <LoadingBar color="var(--color-primary)" ref={progressRef} shadow={true} height={2} />;
-}
+};
 
 export default NavigationProgress;

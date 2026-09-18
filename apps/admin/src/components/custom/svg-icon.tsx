@@ -19,7 +19,7 @@ interface SvgIconProps {
   style?: CSSProperties;
 }
 
-function SvgIcon(props: SvgIconProps) {
+const SvgIcon = (props: SvgIconProps) => {
   const { icon, localIcon, className, style } = props;
 
   if (isNotNil(localIcon)) {
@@ -31,6 +31,6 @@ function SvgIcon(props: SvgIconProps) {
   }
 
   return null;
-}
+};
 
 export default SvgIcon;

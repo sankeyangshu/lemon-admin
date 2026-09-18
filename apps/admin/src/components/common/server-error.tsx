@@ -4,7 +4,7 @@ import { Button } from '@workspace/web-ui/components/button';
 
 import serverError from '@/assets/svg-icon/server-error.svg';
 
-function ServerError() {
+const ServerError = () => {
   const { t } = useTranslation();
 
   const elements = [
@@ -49,6 +49,6 @@ function ServerError() {
       </div>
     </div>
   );
-}
+};
 
 export default ServerError;

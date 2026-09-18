@@ -4,7 +4,7 @@ import { Button } from '@workspace/web-ui/components/button';
 
 import forbidden from '@/assets/svg-icon/forbidden.svg';
 
-function Forbidden() {
+const Forbidden = () => {
   const { t } = useTranslation();
 
   const elements = [
@@ -49,6 +49,6 @@ function Forbidden() {
       </div>
     </div>
   );
-}
+};
 
 export default Forbidden;

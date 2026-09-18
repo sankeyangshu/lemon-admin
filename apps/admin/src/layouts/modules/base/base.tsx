@@ -19,7 +19,7 @@ interface BaseLayoutProps extends LayoutProps {
   onUpdateSidebarCollapse?: (collapse: boolean) => void;
 }
 
-function BaseLayout(props: BaseLayoutProps) {
+const BaseLayout = (props: BaseLayoutProps) => {
   const {
     mode = 'vertical',
     scrollMode = 'content',
@@ -113,9 +113,9 @@ function BaseLayout(props: BaseLayoutProps) {
     showFooter && !footerLeftGapClass && layoutClasses.sidebarPaddingBottom
   );
 
-  const handleClickMask = () => {
+  function handleClickMask() {
     onUpdateSidebarCollapse?.(true);
-  };
+  }
 
   return (
     <div className={cn('relative h-full', commonClass)} style={cssVars}>
@@ -255,6 +255,6 @@ function BaseLayout(props: BaseLayoutProps) {
       </div>
     </div>
   );
-}
+};
 
 export default BaseLayout;

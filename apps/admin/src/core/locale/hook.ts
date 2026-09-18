@@ -1,5 +1,4 @@
 import { createContext, use } from 'react';
-import { defaultLanguage } from '@/locales';
 
 export const LOCALE_OPTIONS: App.I18n.LangOption[] = [
   {
@@ -12,25 +11,23 @@ export const LOCALE_OPTIONS: App.I18n.LangOption[] = [
   },
 ];
 
-interface LocaleProviderState {
+export interface LocaleProviderState {
+  /** 当前语言 */
   locale: App.I18n.LangType;
+  /** 可选语言列表 */
   localeOptions: App.I18n.LangOption[];
+  /** 切换语言 */
   setLocale: (locale: App.I18n.LangType) => void;
 }
 
-const initialState: LocaleProviderState = {
-  locale: defaultLanguage,
-  localeOptions: LOCALE_OPTIONS,
-  setLocale: () => null,
-};
-
-export const LocaleProviderContext = createContext<LocaleProviderState>(initialState);
+export const LocaleProviderContext = createContext<LocaleProviderState | null>(null);
 
 export function useLocale() {
   const context = use(LocaleProviderContext);
 
-  if (context === undefined)
+  if (!context) {
     throw new Error('useLocale must be used within a LocaleProvider');
+  }
 
   return context;
 }

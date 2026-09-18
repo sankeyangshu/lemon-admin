@@ -63,10 +63,10 @@ export async function setupI18n<TLang extends string>(options: SetupI18nOptions<
 
 /**
  * 设置当前语言
- * @param lng - 语言代码
+ * @param language - 语言代码
  */
-export async function setLng(lng: string) {
-  await i18n.changeLanguage(lng);
+export async function setCurrentLang(language: string) {
+  await i18n.changeLanguage(language);
 }
 
 /**

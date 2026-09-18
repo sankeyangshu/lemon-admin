@@ -1,5 +1,5 @@
 import { Outlet } from '@tanstack/react-router';
-import { cn } from '@/lib/utils';
+import { cn } from '@workspace/web-ui/lib/utils';
 
 interface Props {
   /** 是否关闭内边距 */
@@ -8,7 +8,7 @@ interface Props {
 
 function Content({ closePadding = false }: Props) {
   return (
-    <div className={cn(`h-full grow bg-background`, !closePadding && 'p-4')}>
+    <div className={cn('bg-background h-full grow', !closePadding && 'p-4')}>
       <Outlet />
     </div>
   );

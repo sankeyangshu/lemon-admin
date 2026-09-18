@@ -12,7 +12,7 @@ export async function setupI18n(options: SetupI18nOptions<App.I18n.LangType> = {
     missingWarn: import.meta.env.DEV,
     ...options,
     detection: {
-      lookupLocalStorage: `${import.meta.env.VITE_STORAGE_PREFIX}language`,
+      lookupLocalStorage: `${import.meta.env.VITE_STORAGE_PREFIX}-language`,
       ...options.detection,
     },
   });

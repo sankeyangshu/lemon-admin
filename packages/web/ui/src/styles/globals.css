@@ -3,7 +3,7 @@
 @import 'shadcn/tailwind.css';
 @import '@fontsource-variable/inter';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 @source "../../../../../apps/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 

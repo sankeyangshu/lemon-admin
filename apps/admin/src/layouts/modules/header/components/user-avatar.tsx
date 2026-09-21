@@ -1,9 +1,14 @@
-import { useTranslation } from 'react-i18next';
-import SvgIcon from '@/components/custom/svg-icon';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { useTranslation } from '@workspace/web-i18n';
+import { Avatar, AvatarFallback, AvatarImage } from '@workspace/web-ui/components/avatar';
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@workspace/web-ui/components/hover-card';
 
-function UserAvatar() {
+import SvgIcon from '@/components/custom/svg-icon';
+
+const UserAvatar = () => {
   const { t } = useTranslation();
 
   const options = [
@@ -34,12 +39,12 @@ function UserAvatar() {
       <HoverCardTrigger
         delay={10}
         closeDelay={100}
-        render={(
+        render={
           <Avatar className="mr-5">
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
-        )}
+        }
       />
       <HoverCardContent>
         <div className="flex items-center pb-1">
@@ -48,42 +53,29 @@ function UserAvatar() {
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <div className="ml-3 h-full flex-1">
-            <span className="block truncate text-sm font-medium text-foreground">Admin</span>
+            <span className="text-foreground block truncate text-sm font-medium">Admin</span>
             <span className="mt-0.5 block truncate text-xs text-gray-500">xxx@example.com</span>
           </div>
         </div>
-        <ul className="mt-3 border-t border-border pt-4">
+        <ul className="border-border mt-3 border-t pt-4">
           {options.map((option) => (
             <li
               key={option.key}
-              className="
-                mb-3 flex cursor-pointer items-center rounded-md p-2 select-none
-                last:mb-0
-                hover:bg-muted hover:text-foreground
-                dark:hover:bg-muted/50
-              "
+              className="hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 mb-3 flex cursor-pointer items-center rounded-md p-2 select-none last:mb-0"
             >
-              <SvgIcon
-                icon={option.icon}
-                className="mr-2 text-base"
-              />
+              <SvgIcon icon={option.icon} className="mr-2 text-base" />
               <span className="text-sm">{option.label}</span>
             </li>
           ))}
 
-          <div className="my-2 h-px w-full bg-border"></div>
-          <div className="
-            mt-5 cursor-pointer rounded-md border border-border py-1.5 text-center text-xs
-            transition-all duration-200
-            hover:shadow-xl
-          "
-          >
+          <div className="bg-border my-2 h-px w-full" />
+          <div className="border-border mt-5 cursor-pointer rounded-md border py-1.5 text-center text-xs transition-all duration-200 hover:shadow-xl">
             {t('login.logout')}
           </div>
         </ul>
       </HoverCardContent>
     </HoverCard>
   );
-}
+};
 
 export default UserAvatar;

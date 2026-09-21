@@ -1,5 +1,5 @@
-import { isNil } from 'es-toolkit/compat';
-import { cn } from '@/lib/utils';
+import { cn } from '@workspace/web-ui/lib/utils';
+import { isNil } from 'es-toolkit/predicate';
 
 export interface DividerProps {
   /**
@@ -51,18 +51,20 @@ export interface DividerProps {
   vertical?: boolean;
 }
 
-export function Divider({
-  children,
-  className,
-  dashed = false,
-  orientation = 'horizontal',
-  plain = false,
-  style,
-  size,
-  titlePlacement = 'center',
-  variant = 'solid',
-  vertical = false,
-}: DividerProps) {
+export const Divider = (props: DividerProps) => {
+  const {
+    children,
+    className,
+    dashed = false,
+    orientation = 'horizontal',
+    plain = false,
+    style,
+    size,
+    titlePlacement = 'center',
+    variant = 'solid',
+    vertical = false,
+  } = props;
+
   // 处理方向：vertical prop 优先级低于 orientation
   const finalOrientation = vertical ? 'vertical' : orientation;
 
@@ -79,7 +81,7 @@ export function Divider({
           'bg-border',
           finalVariant === 'dashed' && 'border-l border-dashed bg-transparent',
           finalVariant === 'dotted' && 'border-l border-dotted bg-transparent',
-          className,
+          className
         )}
         style={style}
         role="separator"
@@ -98,7 +100,7 @@ export function Divider({
           size === 'middle' && 'my-4',
           size === 'large' && 'my-6',
           !size && 'my-6',
-          className,
+          className
         )}
         style={style}
         role="separator"
@@ -109,7 +111,7 @@ export function Divider({
             'h-px w-full',
             'bg-border',
             finalVariant === 'dashed' && 'border-t border-dashed bg-transparent',
-            finalVariant === 'dotted' && 'border-t border-dotted bg-transparent',
+            finalVariant === 'dotted' && 'border-t border-dotted bg-transparent'
           )}
         />
       </div>
@@ -125,7 +127,7 @@ export function Divider({
         size === 'middle' && 'my-4',
         size === 'large' && 'my-6',
         !size && 'my-6',
-        className,
+        className
       )}
       style={style}
       role="separator"
@@ -139,7 +141,7 @@ export function Divider({
             titlePlacement === 'center' ? 'flex-1' : 'w-full',
             'bg-border',
             finalVariant === 'dashed' && 'border-t border-dashed bg-transparent',
-            finalVariant === 'dotted' && 'border-t border-dotted bg-transparent',
+            finalVariant === 'dotted' && 'border-t border-dotted bg-transparent'
           )}
         />
       )}
@@ -148,7 +150,7 @@ export function Divider({
       <div
         className={cn(
           'shrink-0 px-4',
-          plain ? 'text-sm text-muted-foreground' : 'text-base font-medium text-foreground',
+          plain ? 'text-sm text-muted-foreground' : 'text-base font-medium text-foreground'
         )}
       >
         {children}
@@ -162,10 +164,10 @@ export function Divider({
             titlePlacement === 'center' ? 'flex-1' : 'w-full',
             'bg-border',
             finalVariant === 'dashed' && 'border-t border-dashed bg-transparent',
-            finalVariant === 'dotted' && 'border-t border-dotted bg-transparent',
+            finalVariant === 'dotted' && 'border-t border-dotted bg-transparent'
           )}
         />
       )}
     </div>
   );
-}
+};

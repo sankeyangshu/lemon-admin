@@ -1,26 +1,30 @@
-import { useTranslation } from 'react-i18next';
-import { useShallow } from 'zustand/react/shallow';
-import { Button } from '@/components/ui/button';
+import { useTranslation } from '@workspace/web-i18n';
+import { Button } from '@workspace/web-ui/components/button';
 import {
   Sheet,
   SheetContent,
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { useAppStore } from '@/store/app';
+} from '@workspace/web-ui/components/sheet';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@workspace/web-ui/components/tabs';
+import { useShallow } from 'zustand/react/shallow';
+
+import { useAppStore } from '@/stores/app';
+
 import Appearance from './modules/appearance';
 import General from './modules/general';
 import Layout from './modules/layout';
 
-function ThemeDrawer() {
+const ThemeDrawer = () => {
   const { t } = useTranslation();
 
-  const { showThemeDrawer, toggleThemeDrawer } = useAppStore(useShallow((state) => ({
-    showThemeDrawer: state.system.settings.showThemeDrawer,
-    toggleThemeDrawer: state.toggleThemeDrawer,
-  })));
+  const { showThemeDrawer, toggleThemeDrawer } = useAppStore(
+    useShallow((state) => ({
+      showThemeDrawer: state.system.settings.showThemeDrawer,
+      toggleThemeDrawer: state.toggleThemeDrawer,
+    }))
+  );
 
   return (
     <Sheet open={showThemeDrawer} onOpenChange={toggleThemeDrawer}>
@@ -31,7 +35,7 @@ function ThemeDrawer() {
 
         <Tabs defaultValue="appearance" className="w-full flex-1 flex-col overflow-hidden">
           <div className="px-4">
-            <TabsList className="h-10 w-full">
+            <TabsList className="w-full group-data-horizontal/tabs:h-10">
               <TabsTrigger value="appearance">{t('theme.drawer.tabs.appearance')}</TabsTrigger>
               <TabsTrigger value="layout">{t('theme.drawer.tabs.layout')}</TabsTrigger>
               <TabsTrigger value="general">{t('theme.drawer.tabs.general')}</TabsTrigger>
@@ -59,6 +63,6 @@ function ThemeDrawer() {
       </SheetContent>
     </Sheet>
   );
-}
+};
 
 export default ThemeDrawer;

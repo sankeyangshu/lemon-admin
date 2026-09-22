@@ -5,7 +5,7 @@ import LayoutMode from './layout-mode';
 import SidebarSettings from './sidebar-settings';
 import TabSettings from './tab-settings';
 
-function Layout() {
+const Layout = () => {
   return (
     <div className="flex flex-col items-stretch gap-4">
       <LayoutMode />
@@ -16,6 +16,6 @@ function Layout() {
       <ContentSettings />
     </div>
   );
-}
+};
 
 export default Layout;

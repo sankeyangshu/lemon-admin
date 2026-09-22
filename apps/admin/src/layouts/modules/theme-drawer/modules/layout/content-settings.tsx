@@ -1,19 +1,30 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '@workspace/web-i18n';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@workspace/web-ui/components/select';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@workspace/web-ui/components/tooltip';
 import { useShallow } from 'zustand/react/shallow';
+
 import { Divider } from '@/components/custom/divider';
 import SvgIcon from '@/components/custom/svg-icon';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/stores/app';
+
 import SettingItem from '../../components/setting-item';
 
-function ContentSettings() {
+const ContentSettings = () => {
   const { t } = useTranslation();
 
-  const { scrollMode, setLayout } = useAppStore(useShallow((state) => ({
-    scrollMode: state.system.layout.scrollMode,
-    setLayout: state.setLayout,
-  })));
+  const { scrollMode, setLayout } = useAppStore(
+    useShallow((state) => ({
+      scrollMode: state.system.layout.scrollMode,
+      setLayout: state.setLayout,
+    }))
+  );
 
   const modeOptions = [
     { label: t('theme.drawer.layout.content.scrollMode.wrapper'), value: 'wrapper' },
@@ -22,29 +33,30 @@ function ContentSettings() {
 
   return (
     <>
-      <Divider titlePlacement="center">
-        {t('theme.drawer.layout.content.title')}
-      </Divider>
+      <Divider titlePlacement="center">{t('theme.drawer.layout.content.title')}</Divider>
       <SettingItem
         label={t('theme.drawer.layout.content.scrollMode.title')}
-        suffix={(
+        suffix={
           <Tooltip>
-            <TooltipTrigger render={(props) => (
-              <div {...props}>
-                <SvgIcon icon="mdi:help-circle" className="size-4!" />
-              </div>
-            )}
+            <TooltipTrigger
+              render={(props) => (
+                <div {...props}>
+                  <SvgIcon icon="mdi:help-circle" className="size-4!" />
+                </div>
+              )}
             />
             <TooltipContent>
               <p>{t('theme.drawer.layout.content.scrollMode.tip')}</p>
             </TooltipContent>
           </Tooltip>
-        )}
+        }
       >
         <Select
           items={modeOptions}
           value={scrollMode}
-          onValueChange={(value) => setLayout('scrollMode', value as 'wrapper' | 'content')}
+          onValueChange={(value) =>
+            setLayout('scrollMode', value as App.Config.System['layout']['scrollMode'])
+          }
         >
           <SelectTrigger className="w-full max-w-30">
             <SelectValue />
@@ -62,6 +74,6 @@ function ContentSettings() {
       </SettingItem>
     </>
   );
-}
+};
 
 export default ContentSettings;

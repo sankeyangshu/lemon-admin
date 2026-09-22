@@ -1,10 +1,12 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '@workspace/web-i18n';
+import { Input } from '@workspace/web-ui/components/input';
+
 import { Divider } from '@/components/custom/divider';
-import { Input } from '@/components/ui/input';
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/stores/app';
+
 import SettingItem from '../../components/setting-item';
 
-function ThemeRadius() {
+const ThemeRadius = () => {
   const { t } = useTranslation();
 
   const themeRadius = useAppStore((state) => state.system.theme.radius);
@@ -12,9 +14,7 @@ function ThemeRadius() {
 
   return (
     <>
-      <Divider titlePlacement="center">
-        {t('theme.drawer.appearance.themeRadius')}
-      </Divider>
+      <Divider titlePlacement="center">{t('theme.drawer.appearance.themeRadius')}</Divider>
       <SettingItem label={t('theme.drawer.appearance.themeRadius')}>
         <Input
           type="number"
@@ -25,6 +25,6 @@ function ThemeRadius() {
       </SettingItem>
     </>
   );
-}
+};
 
 export default ThemeRadius;

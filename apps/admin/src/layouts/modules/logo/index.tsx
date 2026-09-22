@@ -21,7 +21,7 @@ const Logo = (props: LogoProps) => {
       )}
       {...rest}
     >
-      <SvgIcon localIcon="icon-logo" className="size-8" />
+      <SvgIcon localIcon="icon-logo" className="size-8!" />
       {showTitle ? (
         <h2 className="text-primary pl-2 text-base font-bold transition duration-300 ease-in-out">
           {t('system.title')}

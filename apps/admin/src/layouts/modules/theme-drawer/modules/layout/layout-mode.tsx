@@ -1,9 +1,9 @@
-import { useMediaQuery } from '@reactuses/core';
 import { useTranslation } from '@workspace/web-i18n';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@workspace/web-ui/components/tooltip';
 import { cn } from '@workspace/web-ui/lib/utils';
 
 import { Divider } from '@/components/custom/divider';
+import { useAdminLayoutContext } from '@/layouts/context';
 import { useAppStore } from '@/stores/app';
 
 /** 各布局模式的缩略预览，与实例无关 */
@@ -171,8 +171,7 @@ const LayoutMode = () => {
   const { t } = useTranslation();
 
   const layoutMode = useAppStore((state) => state.system.layout.mode);
-  // 对齐 Tailwind `--breakpoint-md: 48rem`（浏览器默认字号 16px 时为 768px）
-  const isMobile = useMediaQuery('(width < 48rem)');
+  const { isMobile } = useAdminLayoutContext();
 
   return (
     <>

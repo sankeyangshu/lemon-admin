@@ -30,6 +30,8 @@ catalogs:
     # 代码检查
     oxfmt: ^0.68.0
     oxlint: ^1.83.0
+    '@tanstack/eslint-plugin-query': ^5.103.2
+    '@tanstack/eslint-plugin-router': ^1.162.0
 
     # 项目构建
     turbo: ^2.11.2

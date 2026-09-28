@@ -45,6 +45,7 @@
     "lint-staged": "catalog:dev",
     "oxfmt": "catalog:dev",
     "oxlint": "catalog:dev",
+    "oxlint-tsgolint": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
     "turbo": "catalog:dev",
     "typescript": "catalog:core"
@@ -61,5 +62,5 @@
     "node": ">=22",
     "pnpm": ">=11"
   },
-  "packageManager": "pnpm@12.5.1"
+  "packageManager": "pnpm@12.6.0"
 }

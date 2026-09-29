@@ -53,7 +53,7 @@ declare namespace Env {
      * 首页路由 key
      * 当权限路由模式为静态时，首页路由 key 才有效，如果权限路由模式为动态，首页路由 key 在后台定义
      */
-    readonly VITE_ROUTE_HOME: App.Global.RouteId;
+    readonly VITE_ROUTE_HOME: App.Router.RoutePath;
     /**
      * 用于区分不同域的存储
      */

@@ -1,22 +1,18 @@
 /**
- * The global namespace for the app
- * @descCN 应用全局类型
+ * 应用全局类型
  */
 declare namespace App {
   /**
-   * I18n namespace
-   * @descCN 国际化命名空间
+   * 国际化命名空间
    */
   namespace I18n {
     /**
-     * Language type
-     * @descCN 语言类型
+     * 语言类型
      */
     type LangType = 'en-US' | 'zh-CN';
 
     /**
-     * Language option
-     * @descCN 语言选项
+     * 语言选项
      */
     interface LangOption {
       value: LangType;
@@ -24,8 +20,7 @@ declare namespace App {
     }
 
     /**
-     * i18n scheme
-     * @descCN i18n key
+     * i18n key
      */
     interface I18nScheme {
       system: {
@@ -123,11 +118,12 @@ declare namespace App {
             layoutMode: {
               title: string;
             } & Record<Config.LayoutMode, string> & {
-              [K in `${Config.LayoutMode}_detail`]: string;
-            };
+                [K in `${Config.LayoutMode}_detail`]: string;
+              };
             tab: {
               title: string;
               visible: string;
+              cache: string;
               height: string;
               mode: { title: string } & Record<Config.TabMode, string>;
               closeByMiddleClick: string;
@@ -151,6 +147,8 @@ declare namespace App {
               mixChildMenuWidth: string;
               autoSelectFirstMenu: string;
               autoSelectFirstMenuTip: string;
+              pinChildMenu: string;
+              unpinChildMenu: string;
             };
             footer: {
               title: string;
@@ -196,7 +194,10 @@ declare namespace App {
       };
     }
 
-    type GetI18nKey<T extends Record<string, unknown>, K extends keyof T = keyof T> = K extends string
+    type GetI18nKey<
+      T extends Record<string, unknown>,
+      K extends keyof T = keyof T,
+    > = K extends string
       ? T[K] extends Record<string, unknown>
         ? `${K}.${GetI18nKey<T[K]>}`
         : K
@@ -209,53 +210,41 @@ declare namespace App {
   }
 
   /**
-   * The storage namespace
-   * @descCN 存储命名空间
-   */
-  namespace Storage {
-    /**
-     * The local storage
-     * @descCN 本地存储
-     */
-    interface Local {
-      /**
-       * The i18n language
-       * @descCN 国际化语言
-       */
-      language: I18n.LangType;
-      /**
-       * The theme mode
-       * @descCN 主题模式
-       */
-      themeMode: 'dark' | 'light' | 'system';
-    }
-  }
-
-  /**
-   * Config namespace
-   * @descCN 全局配置命名空间
+   * 全局配置命名空间
    */
   namespace Config {
     /**
-     * Theme color type
-     * @descCN 主题颜色类型
+     * 主题颜色
      */
-    type ThemeColor = 'teal' | 'beige' | 'oceanBlue' | 'emeraldGreen' | 'hotPink' | 'coralRed' | 'salmonPink' | 'orange' | 'violet';
+    type ThemeColor =
+      | 'teal'
+      | 'beige'
+      | 'oceanBlue'
+      | 'emeraldGreen'
+      | 'hotPink'
+      | 'coralRed'
+      | 'salmonPink'
+      | 'orange'
+      | 'violet';
 
     /**
-     * Layout mode type
-     * @descCN 布局模式类型
+     * 布局模式
      * - vertical: 左侧菜单模式
      * - horizontal: 顶部菜单模式
      * - vertical-mix: 左侧菜单混合模式
      * - top-hybrid-sidebar-first: 顶部混合-侧边优先
      * - top-hybrid-header-first: 顶部混合-顶部优先
      */
-    type LayoutMode = 'vertical' | 'horizontal' | 'vertical-mix' | 'vertical-hybrid-header-first' | 'top-hybrid-sidebar-first' | 'top-hybrid-header-first';
+    type LayoutMode =
+      | 'vertical'
+      | 'horizontal'
+      | 'vertical-mix'
+      | 'vertical-hybrid-header-first'
+      | 'top-hybrid-sidebar-first'
+      | 'top-hybrid-header-first';
 
     /**
-     * Tab mode type
-     * @descCN 标签风格类型
+     * 标签风格
      * - button: 按钮风格
      * - chrome: 谷歌风格
      * - slider: 滑块风格
@@ -263,236 +252,202 @@ declare namespace App {
     type TabMode = 'button' | 'chrome' | 'slider';
 
     /**
-     * System config
-     * @descCN 系统配置
+     * 系统配置
      */
     interface System {
       /**
-       * Theme config
-       * @descCN 主题配置
+       * 主题配置
        */
       theme: {
         /**
-         * Theme color
-         * @descCN 主题颜色
+         * 主题颜色
          * @default 'teal'
          */
         color: ThemeColor;
         /**
-         * grey mode
-         * @descCN 灰度模式
+         * 灰度模式
          * @default false
          */
         greyMode: boolean;
         /**
-         * weak mode
-         * @descCN 色弱模式
+         * 色弱模式
          * @default false
          */
         weakMode: boolean;
         /**
-         * Theme radius
-         * @descCN 圆角值
+         * 圆角值
          * @default 6
          */
         radius: number;
       };
 
       /**
-       * Layout config
-       * @descCN 布局配置
+       * 布局配置
        */
       layout: {
         /**
-         * Theme layout mode
-         * @descCN 主题布局模式
+         * 主题布局模式
          * @default 'vertical'
          * @see {@link LayoutMode}
          */
         mode: LayoutMode;
         /**
-         * Scroll mode
-         * @descCN 滚动模式
+         * 滚动模式
          * @default 'content'
          */
         scrollMode: 'wrapper' | 'content';
       };
 
       /**
-       * Header config
-       * @descCN 头部配置
+       * 头部配置
        */
       header: {
         /**
-         * Header height
-         * @descCN 头部高度
+         * 头部高度
          * @default 56
          */
         height: number;
         /**
-         * Breadcrumb visible
-         * @descCN 显示面包屑
+         * 显示面包屑
          * @default true
          */
         breadcrumbVisible: boolean;
         /**
-         * Breadcrumb show icon
-         * @descCN 显示面包屑图标
+         * 显示面包屑图标
          * @default true
          */
         breadcrumbShowIcon: boolean;
       };
 
       /**
-       * Tab config
-       * @descCN 标签页配置
+       * 标签页配置
        */
       tab: {
         /**
-         * Tab visible
-         * @descCN 显示标签
+         * 显示标签
          * @default true
          */
         visible: boolean;
         /**
-         * Tab height
-         * @descCN 标签高度
+         * 是否缓存标签
+         * @default true
+         */
+        cache: boolean;
+        /**
+         * 标签高度
          * @default 44
          */
         height: number;
         /**
-         * The mode of the tab
-         * @descCN 标签样式
+         * 标签风格
          * @default 'chrome'
          * @see {@link TabMode}
          */
         mode: TabMode;
         /**
-         * Close tab by middle click
-         * @descCN 鼠标中键关闭标签页
+         * 鼠标中键关闭标签页
          * @default false
          */
         closeTabByMiddleClick: boolean;
       };
 
       /**
-       * Sidebar config
-       * @descCN 侧边栏配置
+       * 侧边栏配置
        */
       sidebar: {
         /**
-         * Sidebar inverted
-         * @descCN 侧边栏反转色
+         * 侧边栏反转色
          * @default false
          */
         inverted: boolean;
         /**
-         * Sidebar width
-         * @descCN 侧边栏宽度
+         * 侧边栏宽度
          * @default 220
          */
         width: number;
         /**
-         * Sidebar collapsed width
-         * @descCN 侧边栏折叠宽度
+         * 侧边栏折叠宽度
          * @default 64
          */
         collapsedWidth: number;
         /**
-         * Sidebar mix child menu width
-         * @descCN 侧边栏混合子菜单宽度
+         * 侧边栏混合子菜单宽度
          * @default 200
          */
         mixChildMenuWidth: number;
         /**
-         * Sidebar mix collapsed width
-         * @descCN 侧边栏混合折叠宽度
+         * 侧边栏混合折叠宽度
          * @default 64
          */
         mixCollapsedWidth: number;
         /**
-         * Sidebar mix width
-         * @descCN 侧边栏混合宽度
+         * 侧边栏混合宽度
          * @default 90
          */
         mixWidth: number;
         /**
-         * Sidebar auto select first menu
-         * @descCN 侧边栏自动选择第一个子菜单
+         * 侧边栏自动选择第一个子菜单
          * @default false
          */
         autoSelectFirstMenu: boolean;
       };
 
       /**
-       * Footer config
-       * @descCN 底部配置
+       * 底部配置
        */
       footer: {
         /**
-         * Footer visible
-         * @descCN 底部显示
+         * 底部显示
          * @default true
          */
         visible: boolean;
         /**
-         * Footer height
-         * @descCN 底部高度
+         * 底部高度
          * @default 48
          */
         height: number;
         /**
-         * Footer fixed
-         * @descCN 底部固定
+         * 底部固定
          * @default false
          */
         fixed: boolean;
         /**
-         * Footer right
-         * @descCN 底部居于右侧
+         * 底部居于右侧
          * @default true
          */
         right: boolean;
       };
 
       /**
-       * Settings config
-       * @descCN 设置配置
+       * 设置配置
        */
       settings: {
         /**
-         * Show theme drawer
-         * @descCN 显示主题设置
+         * 显示主题设置
          */
         showThemeDrawer: boolean;
         /**
-         * Content x scrollable
-         * @descCN 内容水平滚动
+         * 内容水平滚动
          */
         contentXScrollable: boolean;
         /**
-         * Full content
-         * @descCN 内容全屏
+         * 内容全屏
          */
         fullContent: boolean;
         /**
-         * Mix sidebar fixed
-         * @descCN 混合侧边栏固定
+         * 混合侧边栏固定
          */
         mixSidebarFixed: boolean;
         /**
-         * Reload flag
-         * @descCN 重新加载标志
+         * 重新加载标志
          */
         reloadFlag: boolean;
         /**
-         * Sidebar collapse
-         * @descCN 侧边栏折叠
+         * 侧边栏折叠
          */
         sidebarCollapse: boolean;
         /**
-         * Fixed header and tab
-         * @descCN 固定头部和标签栏
+         * 固定头部和标签栏
          * @default true
          */
         fixedHeaderAndTab: boolean;
@@ -501,83 +456,137 @@ declare namespace App {
   }
 
   /**
-   * Global namespace
+   * 路由命名空间
    */
-  namespace Global {
+  namespace Router {
     type RouteId = keyof import('@/routeTree.gen').FileRoutesById;
     type RoutePath = keyof import('@/routeTree.gen').FileRoutesByTo;
+    type IconifyIcon = import('@iconify/react').IconifyIcon;
+    type LocalSvgName = (typeof import('~virtual/svg-component').svgNames)[number];
 
     /**
-     * Menu
-     * @descCN 菜单
+     * 路由元数据
+     * @description 路由和菜单共用的 meta。静态来自 staticData，动态来自适配后的后端节点
      */
-    interface Menu {
+    interface RouteMeta {
       /**
-       * 菜单 key
+       * 路由标题，菜单和面包屑的兜底文案
        */
-      key: string;
-      /**
-       * 菜单标题
-       */
-      title: string;
-      /**
-       * 路由 ID
-       */
-      routeId: RouteId;
-      /**
-       * 路由路径
-       */
-      routePath: RoutePath;
+      title?: string | null;
       /**
        * 国际化 key
        */
-      i18nKey?: I18n.I18nKey;
+      i18nKey?: I18n.I18nKey | null;
       /**
-       * 菜单图标
+       * 是否缓存页面
        */
-      icon?: React.ReactNode;
+      keepAlive?: boolean | null;
       /**
-       * 菜单标签
+       * 外链。有值时点击开新窗口，不走 navigate
        */
-      label?: string;
+      href?: string | null;
       /**
-       * 菜单描述
+       * 内嵌 iframe 地址，不是 href 外链
        */
-      caption?: string;
+      url?: string | null;
       /**
-       * 排序值
+       * 菜单配置
        */
-      order?: number;
+      menu?: MenuMeta | null;
+      /**
+       * 用户权限。空数组或没写表示不限制
+       */
+      permissions?: string[] | null;
+      /**
+       * 从菜单点进来时附带的 search
+       */
+      query?: { key: string; value: string }[] | null;
+      /**
+       * 标签页
+       */
+      tab?: {
+        /**
+         * 固定标签的序号
+         */
+        fixedIndex?: number | null;
+        /**
+         * 同一 path 不同 query 是否各开一个页签
+         */
+        multi?: boolean | null;
+      } | null;
+    }
+
+    /**
+     * 菜单元数据
+     */
+    interface MenuMeta {
+      /**
+       * 图标, Iconify 图标名
+       */
+      icon?: string | IconifyIcon | null;
+      /**
+       * 本地图标
+       */
+      localIcon?: LocalSvgName | null;
+      /**
+       * 高亮菜单 path
+       */
+      activeMenu?: string | null;
+      /**
+       * 角标配置
+       */
+      badge?: MenuBadge | null;
+      /**
+       * 自定义右侧扩展的注册 key
+       */
+      extra?: string | null;
       /**
        * 隐藏菜单
        */
-      hideInMenu?: boolean;
+      hide?: boolean | null;
+      /**
+       * 排序值，越小越靠前，同级排序
+       */
+      order?: number | null;
       /**
        * 是否禁用
        */
-      disabled?: boolean;
+      disabled?: boolean | null;
       /**
-       * 子菜单
+       * 菜单类型
+       * - divider: 分隔线
+       * - group: 分组
+       * - item: 可点
        */
-      children?: Menu[];
+      type?: 'divider' | 'group' | 'item' | null;
     }
 
     /**
-     * 路由静态数据
+     * 角标配置
      */
-    interface RouteStaticData extends Omit<Menu, 'key' | 'title' | 'routeId' | 'routePath' | 'children'> {
+    interface MenuBadge {
       /**
-       * 路由标题
+       * 值为 0 时是否仍然显示
        */
-      title?: string;
+      showZero?: boolean;
+      /**
+       * 角标类型
+       * - dot: 点
+       * - normal: 数字或文案
+       */
+      type?: 'dot' | 'normal';
+      /**
+       * 静态文案，有 valueKey 时以动态值为准
+       */
+      value?: number | string | null;
+      /**
+       * 从菜单 store 的 badgeValues 里取动态值的 key
+       */
+      valueKey?: string;
+      /**
+       * 颜色
+       */
+      variant?: string;
     }
-
-    /**
-     * Breadcrumb
-     * @descCN 面包屑
-     */
-    type Breadcrumb = Omit<Menu, 'children'> & {
-      options?: Breadcrumb[];
-    };
   }
 }

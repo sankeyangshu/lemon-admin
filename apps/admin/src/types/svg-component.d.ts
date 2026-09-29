@@ -1,5 +1,7 @@
 /* eslint-disable */
 /* prettier-ignore */
+/* oxlint-disable */
+/* oxfmt-ignore */
 // biome-ignore format: off
 // biome-ignore lint: off
 // @ts-nocheck

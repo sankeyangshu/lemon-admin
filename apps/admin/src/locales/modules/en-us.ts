@@ -10,7 +10,8 @@ const local: App.I18n.I18nScheme = {
     refreshAgain: 'Refresh again',
     updateCancel: 'Later',
     updateConfirm: 'Refresh immediately',
-    updateContent: 'A new version of the system has been detected. Do you want to refresh the page immediately?',
+    updateContent:
+      'A new version of the system has been detected. Do you want to refresh the page immediately?',
     updateTitle: 'System Version Update Notification',
     themeMode: 'Theme Mode',
     systemTheme: 'System Theme Color',
@@ -92,19 +93,20 @@ const local: App.I18n.I18nScheme = {
       },
       layout: {
         layoutMode: {
-          'title': 'Layout Mode',
-          'vertical': 'Vertical Mode',
-          'horizontal': 'Horizontal Mode',
+          title: 'Layout Mode',
+          vertical: 'Vertical Mode',
+          horizontal: 'Horizontal Mode',
           'vertical-mix': 'Vertical Mix Mode',
           'vertical-hybrid-header-first': 'Left Hybrid Header-First',
           'top-hybrid-sidebar-first': 'Top-Hybrid Sidebar-First',
           'top-hybrid-header-first': 'Top-Hybrid Header-First',
-          'vertical_detail': 'Vertical menu layout, with the menu on the left and content on the right.',
+          vertical_detail:
+            'Vertical menu layout, with the menu on the left and content on the right.',
           'vertical-mix_detail':
             'Vertical mix-menu layout, with the primary menu on the dark left side and the secondary menu on the lighter left side.',
           'vertical-hybrid-header-first_detail':
             'Left hybrid layout, with the primary menu at the top, the secondary menu on the dark left side, and the tertiary menu on the lighter left side.',
-          'horizontal_detail': 'Horizontal menu layout, with the menu at the top and content below.',
+          horizontal_detail: 'Horizontal menu layout, with the menu at the top and content below.',
           'top-hybrid-sidebar-first_detail':
             'Top hybrid layout, with the primary menu on the left and the secondary menu at the top.',
           'top-hybrid-header-first_detail':
@@ -143,6 +145,8 @@ const local: App.I18n.I18nScheme = {
           autoSelectFirstMenu: 'Auto Select First Submenu',
           autoSelectFirstMenuTip:
             'When a first-level menu is clicked, the first submenu is automatically selected and navigated to the deepest level',
+          pinChildMenu: 'Pin child menu',
+          unpinChildMenu: 'Unpin child menu',
         },
         footer: {
           title: 'Footer Settings',
@@ -182,7 +186,7 @@ const local: App.I18n.I18nScheme = {
     forgetPwd: 'Forgot your password?',
     btnText: 'Login',
     otherSignIn: 'Or continue with',
-    noAccount: 'Don\'t have an account?',
+    noAccount: "Don't have an account?",
     register: 'Sign up',
     logout: 'Log out',
   },

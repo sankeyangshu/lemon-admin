@@ -134,7 +134,13 @@ export type LayoutScrollMode = App.Config.System['layout']['scrollMode'];
 /**
  * 布局 Props
  */
-export interface LayoutProps extends LayoutHeaderConfig, LayoutTabConfig, LayoutSidebarConfig, LayoutContentConfig, LayoutFooterConfig {
+export interface LayoutProps
+  extends
+    LayoutHeaderConfig,
+    LayoutTabConfig,
+    LayoutSidebarConfig,
+    LayoutContentConfig,
+    LayoutFooterConfig {
   /**
    * 布局模式
    * @see {@link LayoutMode}
@@ -181,7 +187,10 @@ export interface LayoutProps extends LayoutHeaderConfig, LayoutTabConfig, Layout
 /**
  * 布局 CSS 变量 Props
  */
-export type LayoutCssVarsProps = Pick<LayoutProps, 'headerHeight' | 'tabHeight' | 'sidebarWidth' | 'sidebarCollapsedWidth' | 'footerHeight'> & {
+export type LayoutCssVarsProps = Pick<
+  LayoutProps,
+  'headerHeight' | 'tabHeight' | 'sidebarWidth' | 'sidebarCollapsedWidth' | 'footerHeight'
+> & {
   headerZIndex?: number;
   tabZIndex?: number;
   sidebarZIndex?: number;

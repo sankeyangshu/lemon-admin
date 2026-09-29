@@ -7,4 +7,4 @@ export {
   type ThemeMode,
   type ThemeTransitionPoint,
 } from './types';
-export { THEME_COLOR_PRESETS } from './utils';
+export { isThemeColor, THEME_COLOR_PRESETS } from './utils';

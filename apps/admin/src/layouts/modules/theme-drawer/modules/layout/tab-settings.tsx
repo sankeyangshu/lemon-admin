@@ -63,7 +63,10 @@ const TabSettings = () => {
               <Select
                 items={modeOptions}
                 value={mode}
-                onValueChange={(value) => setTab('mode', value as App.Config.TabMode)}
+                onValueChange={(value) => {
+                  if (value === null) return;
+                  setTab('mode', value);
+                }}
               >
                 <SelectTrigger className="w-full max-w-30">
                   <SelectValue />

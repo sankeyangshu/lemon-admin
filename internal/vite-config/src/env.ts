@@ -45,6 +45,7 @@ function parseProxyList(value: string) {
  * @returns 断言为 `T` 的转换结果
  * @throws `VITE_PROXY` 不是合法 JSON 或条目不是 `[prefix, target]` 时抛错
  */
+// oxlint-disable-next-line typescript/no-unnecessary-type-parameters
 export function wrapperEnv<T extends object>(envConf: Record<string, string>): T {
   const result: Record<string, unknown> = {};
 
@@ -66,5 +67,6 @@ export function wrapperEnv<T extends object>(envConf: Record<string, string>): T
     }
   }
 
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion
   return result as T;
 }

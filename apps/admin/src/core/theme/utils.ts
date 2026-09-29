@@ -30,7 +30,15 @@ export const THEME_COLOR_PRESETS: Record<App.Config.ThemeColor, string> = {
  * @param value - 待校验值
  */
 export function isThemeMode(value: unknown): value is ThemeMode {
-  return typeof value === 'string' && THEME_MODES.includes(value as ThemeMode);
+  return typeof value === 'string' && THEME_MODES.some((mode) => mode === value);
+}
+
+/**
+ * 判断是否为合法主题色
+ * @param value - 待校验值
+ */
+export function isThemeColor(value: string): value is App.Config.ThemeColor {
+  return Object.hasOwn(THEME_COLOR_PRESETS, value);
 }
 
 /**

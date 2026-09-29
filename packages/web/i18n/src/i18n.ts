@@ -47,7 +47,9 @@ export async function setupI18n<TLang extends string>(options: SetupI18nOptions<
     saveMissing: missingWarn, // 缺 key 时把 key 交给 missingKeyHandler；DEV 下配合上面的 warn
     missingKeyHandler(currentLng, _namespace, key) {
       if (missingWarn && key.includes('.')) {
-        console.warn(`[i18next] Not found '${key}' key in '${currentLng}' locale messages.`);
+        console.warn(
+          `[i18next] Not found '${key}' key in '${currentLng.join(',')}' locale messages.`
+        );
       }
     },
     detection: {

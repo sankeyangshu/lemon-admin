@@ -65,6 +65,10 @@ const LAYOUT_PREVIEWS: Record<App.Config.LayoutMode, React.ReactNode> = {
   ),
 };
 
+function isLayoutMode(value: string): value is App.Config.LayoutMode {
+  return Object.hasOwn(LAYOUT_PREVIEWS, value);
+}
+
 /**
  * 布局卡片配置项
  */
@@ -129,40 +133,44 @@ const LayoutModeCard = (props: LayoutModeCardProps) => {
 
   return (
     <div className="grid grid-cols-2 gap-x-4 gap-y-3 md:grid-cols-3">
-      {Object.entries(layoutConfig).map(([key, item]) => (
-        <div
-          key={key}
-          className="flex cursor-pointer flex-col items-center justify-center"
-          onClick={() => handleChangeMode(key as App.Config.LayoutMode)}
-        >
-          <Tooltip>
-            <TooltipTrigger
-              render={(triggerProps) => (
-                <div
-                  {...triggerProps}
-                  className={cn(
-                    `hover:ring-primary h-16 w-24 gap-1.5 rounded-sm p-1.5 ring-2 ring-transparent transition-all`,
-                    mode === key && 'ring-primary!'
-                  )}
-                >
+      {Object.entries(layoutConfig).map(([key, item]) => {
+        if (!isLayoutMode(key)) return null;
+
+        return (
+          <div
+            key={key}
+            className="flex cursor-pointer flex-col items-center justify-center"
+            onClick={() => handleChangeMode(key)}
+          >
+            <Tooltip>
+              <TooltipTrigger
+                render={(triggerProps) => (
                   <div
+                    {...triggerProps}
                     className={cn(
-                      'size-full gap-1',
-                      key.includes('vertical') ? 'flex' : `flex flex-col`
+                      `hover:ring-primary h-16 w-24 gap-1.5 rounded-sm p-1.5 ring-2 ring-transparent transition-all`,
+                      mode === key && 'ring-primary!'
                     )}
                   >
-                    {previews[key as App.Config.LayoutMode]}
+                    <div
+                      className={cn(
+                        'size-full gap-1',
+                        key.includes('vertical') ? 'flex' : `flex flex-col`
+                      )}
+                    >
+                      {previews[key]}
+                    </div>
                   </div>
-                </div>
-              )}
-            />
-            <TooltipContent side={item.placement}>
-              <p>{t(`theme.drawer.layout.layoutMode.${key}_detail`)}</p>
-            </TooltipContent>
-          </Tooltip>
-          <p className="mt-2 text-xs">{item.title}</p>
-        </div>
-      ))}
+                )}
+              />
+              <TooltipContent side={item.placement}>
+                <p>{t(`theme.drawer.layout.layoutMode.${key}_detail`)}</p>
+              </TooltipContent>
+            </Tooltip>
+            <p className="mt-2 text-xs">{item.title}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };

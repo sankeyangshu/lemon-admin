@@ -54,9 +54,10 @@ const ContentSettings = () => {
         <Select
           items={modeOptions}
           value={scrollMode}
-          onValueChange={(value) =>
-            setLayout('scrollMode', value as App.Config.System['layout']['scrollMode'])
-          }
+          onValueChange={(value) => {
+            if (value === null) return;
+            setLayout('scrollMode', value);
+          }}
         >
           <SelectTrigger className="w-full max-w-30">
             <SelectValue />

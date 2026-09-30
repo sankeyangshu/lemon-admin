@@ -17,7 +17,7 @@ catalogs:
     # React 生态核心
     react: ^19.3.0
     react-dom: ^19.3.0
-    '@tanstack/react-router': ^1.170.39
+    '@tanstack/react-router': ^1.170.40
     '@tanstack/react-query': ^5.104.0
     zustand: ^5.0.15
 
@@ -28,14 +28,14 @@ catalogs:
   # 开发工具
   dev:
     # 代码检查
-    oxfmt: ^0.70.0
-    oxlint: ^1.85.0
+    oxfmt: ^0.71.0
+    oxlint: ^1.86.0
     '@tanstack/eslint-plugin-query': ^5.104.0
     '@tanstack/eslint-plugin-router': ^1.162.0
     oxlint-tsgolint: ^7.0.2003
 
     # 项目构建
-    turbo: ^2.11.4
+    turbo: ^2.11.5
     tsdown: ^0.23.0
     rimraf: ^6.1.3
 
@@ -50,7 +50,7 @@ catalogs:
   # Web 前端专用
   web:
     # 类型定义
-    '@types/node': ^24.13.3
+    '@types/node': ^24.19.0
     '@types/react': ^19.3.0
     '@types/react-dom': ^19.3.0
 
@@ -67,7 +67,7 @@ catalogs:
     # Vite 插件
     '@vitejs/plugin-react': ^6.1.1
     babel-plugin-react-compiler: ^1.0.0
-    '@tanstack/router-plugin': ^1.168.40
+    '@tanstack/router-plugin': ^1.168.41
     unplugin-svg-component: ^0.13.0
 
     # 开发者工具
